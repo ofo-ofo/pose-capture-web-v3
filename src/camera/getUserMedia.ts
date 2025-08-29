@@ -4,17 +4,19 @@
  * automatically. The facing option determines whether the front ('user') or
  * rear ('environment') camera is requested.
  */
+// src/camera/getUserMedia.ts
 export async function openCamera(opts: { facing: 'user' | 'environment' }): Promise<MediaStream> {
+  const isEnv = opts.facing === 'environment';
   const constraints: MediaStreamConstraints = {
     audio: false,
     video: {
-      facingMode: opts.facing === 'environment' ? { exact: 'environment' } : 'user',
+      // exact -> ideal: cihaz çevresel kamerayı desteklemiyorsa fallback olur
+      facingMode: isEnv ? { ideal: 'environment' } : { ideal: 'user' },
       width: { ideal: 1280 },
       height: { ideal: 720 }
     }
   };
-  const stream = await navigator.mediaDevices.getUserMedia(constraints);
-  return stream;
+  return await navigator.mediaDevices.getUserMedia(constraints);
 }
 
 /**

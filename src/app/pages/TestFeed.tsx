@@ -56,6 +56,7 @@ const TestFeed: React.FC = () => {
       setLandmarker(lm);
     }
   };
+  
 
   // Processing loop for the video file
   useEffect(() => {
@@ -118,15 +119,22 @@ const TestFeed: React.FC = () => {
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-semibold">Test Beslemesi</h2>
-      <input type="file" accept="video/mp4" onChange={onFileChange} className="p-2 border rounded" />
+      <input type="file" accept="video/*,image/*" onChange={onFileChange} className="p-2 border rounded" />
       {fileUrl && (
         <div className="relative w-full max-w-screen-sm mx-auto">
           <video
-            ref={videoRef}
-            src={fileUrl}
-            controls
-            className="w-full h-auto rounded"
-          />
+          ref={videoRef}
+          src={fileUrl}
+          controls
+          playsInline
+          muted
+          className="w-full h-auto rounded"
+          onLoadedMetadata={() => {
+            // bazı iOS sürümlerinde play() gerekiyorsa kullanıcı controls'tan başlatır;
+            // yine de şansımızı deneyelim:
+            videoRef.current?.play().catch(() => {});
+          }}
+        />
           <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
         </div>
       )}
