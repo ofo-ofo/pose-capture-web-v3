@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App specific styles */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix 100vh issue on iOS by using CSS variable --vh. This variable should be updated in utils/device.ts */
+.h-screen-ios {
+  height: calc(var(--vh, 1vh) * 100);
+}

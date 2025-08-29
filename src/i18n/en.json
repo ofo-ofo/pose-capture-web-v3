@@ -1,0 +1,15 @@
+{
+  "title": "Pose Capture",
+  "start_camera": "Start camera",
+  "switch_camera": "Switch camera",
+  "manual_capture": "Manual capture",
+  "settings": "Settings",
+  "test_feed": "Test feed",
+  "roll": "Roll",
+  "center": "Center",
+  "height": "Height",
+  "top_margin": "Top margin",
+  "bottom_margin": "Bottom margin",
+  "luma": "Brightness",
+  "status": "Status"
+}

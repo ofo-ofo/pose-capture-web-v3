@@ -1,0 +1,15 @@
+{
+  "title": "Poz Yakalama",
+  "start_camera": "Kamerayı Aç",
+  "switch_camera": "Kamerayı Değiştir",
+  "manual_capture": "Manuel Çek",
+  "settings": "Ayarlar",
+  "test_feed": "Test Beslemesi",
+  "roll": "Düzlük",
+  "center": "Merkez",
+  "height": "Boy",
+  "top_margin": "Üst Boşluk",
+  "bottom_margin": "Alt Boşluk",
+  "luma": "Işık",
+  "status": "Durum"
+}
